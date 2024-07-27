@@ -1,0 +1,301 @@
+/*--------------------
+     VARIABLES
+----------------------*/
+:root {
+  --clr-lime: hsl(61, 70%, 52%);
+  --clr-red: hsl(4, 69%, 50%);
+
+  --clr-n-white: hsl(0, 0%, 100%);
+  --clr-n-slate-100: hsl(202, 86%, 94%);
+  --clr-n-slate-300: hsl(203, 41%, 72%);
+  --clr-n-slate-500: hsl(200, 26%, 54%);
+  --clr-n-slate-700: hsl(200, 24%, 40%);
+  --clr-n-slate-900: hsl(202, 55%, 16%);
+
+  --fw-500: 500;
+  --fw-700: 700;
+
+  --br-inputs: 0.3rem;
+  --br-inputs-bg-left: 0.3rem 0 0 0.3rem;
+  --br-inputs-bg-right: 0 0.3rem 0.3rem 0;
+}
+
+/*--------------------
+     RESET
+----------------------*/
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/*--------------------
+     GLOBAL STYLES
+----------------------*/
+body {
+  display: grid;
+  place-items: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--clr-n-slate-100);
+  color: var(--clr-n-slate-500);
+}
+main {
+  width: 100%;
+  background-color: var(--clr-n-white);
+  box-shadow: 1px 1px 8px 2px rgba(0, 0, 0, 0.3);
+}
+img {
+  max-width: 100%;
+}
+h1 {
+  color: var(--clr-n-slate-900);
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+h2 {
+  margin-bottom: 1rem;
+}
+h3 {
+  color: var(--clr-lime);
+  font-size: 3.5rem;
+  border-bottom: solid 1px var(--clr-n-slate-300);
+  padding-block: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+h4 {
+  font-size: 1.5rem;
+  margin-top: 0.8rem;
+}
+button {
+  background-color: var(--clr-lime);
+  font-family: inherit;
+  border-radius: 100px;
+  border: none;
+  /*outline: none; to make it accessible for keyboard only*/
+  cursor: pointer;
+  display: flex;
+  gap: 0.8rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+/*--------------------
+     MORTGAGE-FORM
+----------------------*/
+.mortgage-form {
+  background-color: var(--clr-n-white);
+  padding: 1.5rem;
+}
+.clear-all-btn {
+  border-bottom: 1px solid var(--clr-n-slate-500);
+  padding-bottom: 0.01rem;
+  display: inline;
+  color: var(--clr-n-slate-700);
+  cursor: pointer;
+}
+.input-container {
+  position: relative;
+}
+
+input,
+.radio-container {
+  padding: 0.8rem 1rem 0.8rem 3.8rem;
+  border-radius: var(--br-inputs);
+  border: var(--clr-n-slate-300) 2px solid;
+  background: transparent;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--clr-n-slate-900);
+  font-weight: var(--fw-700);
+  font-size: 1.2rem;
+  display: grid;
+  z-index: 10;
+}
+.input-right {
+  padding-left: 1rem;
+}
+.input-p-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: var(--clr-n-slate-100);
+  width: 3rem;
+  border-radius: var(--br-inputs-bg-left);
+  font-weight: var(--fw-700);
+  border: var(--clr-n-slate-300) 2px solid;
+  border-right: none;
+  display: grid;
+  place-items: center;
+}
+.input-p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.right {
+  right: 0;
+  border-radius: var(--br-inputs-bg-right);
+  border-left: none;
+  border-right: var(--clr-n-slate-300) 2px solid;
+}
+.years {
+  width: 4rem;
+}
+.radio-container {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  gap: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 0.7rem;
+}
+.radio-container:hover {
+  background-color: rgb(250, 241, 241);
+  border: 2px solid var(--clr-lime);
+}
+
+/*
+input[type="radio"] {
+  accent-color: #d7da2f;
+}*/
+/*I read that by using a hex color I would get the border to turn color too ??? */
+
+input[type="radio"]:checked:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: -9px;
+  left: 3px;
+  position: relative;
+  background-color: #d7da2f;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  outline: none;
+}
+
+#interest-only:checked:before,
+#repayment:checked:before {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  top: 4px;
+  left: 0;
+  position: relative;
+  background-color: transparent;
+  border: var(--clr-lime) 2px solid;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  outline: none;
+}
+
+label {
+  margin-block: 2rem 0.8rem;
+  display: block;
+  color: var(--clr-n-slate-500);
+  font-weight: var(--fw-700);
+}
+button p {
+  color: var(--clr-n-slate-900);
+  font-weight: var(--fw-700);
+  font-size: 1.2rem;
+}
+
+/*--------------------
+     MORTGAGE-RESULTS
+----------------------*/
+
+.mortgage-results-container {
+  background-color: var(--clr-n-slate-900);
+  color: var(--clr-n-white);
+  padding: 1.5rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 32rem;
+}
+.mortgage-results-container p {
+  color: var(--clr-n-slate-300);
+}
+.results-empty,
+.results-completed {
+  position: absolute;
+  left: 0;
+}
+.results-empty {
+  text-align: center;
+  padding-inline: 1rem;
+}
+
+.results-completed {
+  text-align: left;
+  padding: 1.5rem;
+  display: none;
+}
+.results-completed p {
+  margin-top: 0.8rem;
+  padding-inline: 0 !important;
+}
+small {
+  color: var(--clr-red);
+  margin-top: 0.5rem;
+  display: none;
+}
+
+/*--------------------
+     CTA
+----------------------*/
+.cta {
+  background-color: hsl(197, 52%, 11%);
+  border-top: var(--clr-lime) 4px solid;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-block: 2rem;
+}
+
+/*!--------------------
+ /*!    MEDIA QUERIES
+/*!---------------------*/
+@media (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    max-width: 1000px;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .term-and-rate-container {
+    display: flex;
+    gap: 1rem;
+  }
+  .mortgage-results-container {
+    border-radius: 0 0.8rem 0.8rem 3rem;
+    height: 100%;
+  }
+  .mortgage-results-container p {
+    padding-inline: 1rem;
+  }
+  button {
+    width: 90%;
+  }
+}
+
+@media (min-width: 900px) {
+  button {
+    width: 70%;
+  }
+}
